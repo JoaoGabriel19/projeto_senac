@@ -4,16 +4,17 @@ import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import './index.css'
 
 import App from './App.tsx';
+import AVencer from './aVencer.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>
   },
-  // {
-  //   path: "/linkDaRota",
-  //   element: <Rota />,
-  // },
+   {
+    path: "/aVencer",
+     element: <AVencer />,
+   },
   // {
   //   path: "/linkDaRota",
   //   element: <Rota />,
