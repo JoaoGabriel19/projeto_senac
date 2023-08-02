@@ -12,18 +12,28 @@ function App() {
     '&:hover': {
       backgroundColor: "#F7941D",
     },
+    
+  };
+  const textFieldCustom = {
+    color: '#fff',
+    backgroundColor: "#FFF",
+    '&:hover': {
+      backgroundColor: "#FFF",
+    },
   };
   return (
     <>      
       <div className='telaLogin'>
-        <TextField id="login" label="Login" variant="outlined" />
-        <TextField id="senha" label="Senha" variant="outlined" />
-        <p className="link">Esqueceu a senha? 
-            <Link to="/alterarSenha" className="link">
-              {'Clique aqui!'}
-            </Link>
-        </p>
-        <Button id="realizarLogin" style={buttonStyle}>Conectar-se</Button> 
+        <div className='partePrincipal'>
+          <TextField id="login" label="Login" variant="filled" style={textFieldCustom}/>
+          <TextField id="senha" label="Senha" variant="filled" style={textFieldCustom}/>
+          <p className="link">Esqueceu a senha? 
+              <Link to="/alterarSenha" className="link">
+                {'Clique aqui!'}
+              </Link>
+          </p>
+          <Button id="realizarLogin" style={buttonStyle}>Conectar-se</Button> 
+        </div>
       </div>
     </>
   )

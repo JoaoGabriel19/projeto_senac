@@ -1,21 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=REM:wght@300&display=swap');
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+
+html, body
+{
   padding: 0;
-  font-family: "REM";
-  width: 100vw;
-  height: 100vh;
+  margin: 0;
 }
 
-.telaLogin{
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 115, 8);
+  border-radius: 12px;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  overflow-x: hidden;
+  justify-content: center;
+  overflow-x: hidden;
+
+}
+
+.telaLogin {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F7941D;
+}
+
+.partePrincipal{
+  width: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  
+  background-color: #004A8D;
 }
 
 .link{
