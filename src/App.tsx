@@ -1,33 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Link, useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+function App() {
+  const buttonStyle = {
+    color: '#fff',
+    backgroundColor: "#F7941D",
+    '&:hover': {
+      backgroundColor: "#F7941D",
+    },
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+    <>      
+      <div className='telaLogin'>
+        <TextField id="login" label="Login" variant="outlined" />
+        <TextField id="senha" label="Senha" variant="outlined" />
+        <p className="link">Esqueceu a senha? 
+            <Link to="/alterarSenha" className="link">
+              {'Clique aqui!'}
+            </Link>
         </p>
+        <Button id="realizarLogin" style={buttonStyle}>Conectar-se</Button> 
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
