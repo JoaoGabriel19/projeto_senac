@@ -52,7 +52,7 @@ function AVencer() {
         },
         header: true,
         skipEmptyLines: true,
-        encoding: 'utf-8',
+        encoding: 'iso-8859-1',
       });
     }
   };
