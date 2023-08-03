@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as React from 'react';
+import {Navbar} from './navBar/navBar';
 import Papa from 'papaparse';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -63,11 +64,15 @@ function AVencer() {
 
   return (
     <>
-      <div id='container-botao'>
-        <input id='escolherArquivo' type='file' accept=".csv" onChange={handleFileSelect} style={{ display: 'none' }} />
-        <Button id="realizarLogin" style={buttonStyle} onClick={handleButtonClick}>Importar Planilha</Button>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'fixed', width: '100%' }}>
+        <Navbar /> 
+        <div id='container-botao' style={{ width: '100%', height: '10%', display: 'flex', justifyContent: 'center' }}>
+          <br></br>
+          <input id='escolherArquivo' type='file' accept=".csv" onChange={handleFileSelect} style={{ display: 'none' }} />
+          <Button id="realizarLogin" style={buttonStyle} onClick={handleButtonClick}>Importar Planilha</Button>
+        </div>
       </div>
-      <div id='planilha'>
+      <div id='planilha' style={{padding: "10%"}}>
         {dataLoaded && data.length > 0 ? (
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
