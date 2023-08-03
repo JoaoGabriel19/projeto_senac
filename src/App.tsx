@@ -1,50 +1,57 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import './App.css'
+import './App.css';
 import marcaSenacfecomercioSeschorizontalNegativo from './images/marcaSenacfecomercioSeschorizontalnegativo.png';
-
-
 
 function App() {
   const buttonStyle = {
     color: '#fff',
-    backgroundColor: "#F7941D",
+    backgroundColor: '#F7941D',
     '&:hover': {
-      backgroundColor: "#F7941D",
+      backgroundColor: '#F7941D',
     },
     padding: '15px',
+    width: '100%', // Define a largura do botão para preencher o contêiner pai
   };
+
   const textFieldCustom = {
     color: '#fff',
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     '&:hover': {
-      backgroundColor: "#FFF",
+      backgroundColor: '#FFF',
     },
     padding: '5px',
     margin: '5px',
+    width: '100%', // Define a largura do campo de texto para preencher o contêiner pai
   };
+
   const handleButtonClick = () => {
-    //Está função é chamada quando o botão é pressionado
-  }
+    // Esta função é chamada quando o botão é pressionado
+    // Você pode implementar a lógica de login aqui
+  };
+
   return (
-    <>      
-      <div className='telaLogin'>
-        <div className='partePrincipal'>
-        <img src={marcaSenacfecomercioSeschorizontalNegativo} />
-          <TextField id="login" label="Login" variant="filled" style={textFieldCustom}/>
-          <TextField id="senha" label="Senha" type="password"variant="filled" style={textFieldCustom}/>
-          <p className="link">Esqueceu a senha? 
-              <Link to="/alterarSenha" className="link">
-                {'Clique aqui!'}
-              </Link>
+    <>
+      <div className="telaLogin">
+        <div className="partePrincipal">
+          <img src={marcaSenacfecomercioSeschorizontalNegativo} alt="Logo" style={{ marginBottom: '20px' }} />
+          <TextField id="login" label="Login" variant="filled" style={textFieldCustom} />
+          <TextField id="senha" label="Senha" type="password" variant="filled" style={textFieldCustom} />
+          <p className="link">
+            <span>Esqueceu a senha?</span>
+            <Link to="/alterarSenha" className="link">
+              <span>Clique aqui!</span>
+            </Link>
           </p>
-          <Button id="realizarLogin" style={buttonStyle} onClick={handleButtonClick}>Conectar-se</Button> 
+          <Button id="realizarLogin" style={buttonStyle} onClick={handleButtonClick}>
+            Conectar-se
+          </Button>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

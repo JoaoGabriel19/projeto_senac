@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=REM:wght@300&display=swap');
 
-html, body
-{
-  padding: 0;
+body, html {
+  height: 100%;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #004A8D;
 }
 
 ::-webkit-scrollbar {
@@ -22,19 +25,21 @@ html, body
   overflow-x: hidden;
   justify-content: center;
   overflow-x: hidden;
+}
 
+body, #root {
+  margin: 0;
+  padding: 0;
 }
 
 .telaLogin {
-  width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background-color: #F7941D;
+  align-items: center;
 }
 
-.partePrincipal{
+/*.partePrincipal{
   width: 100%;
   height: 90%;
   display: flex;
@@ -42,10 +47,22 @@ html, body
   justify-content: center;
   flex-direction: column;
   background-color: #004A8D;
+}*/
+
+.partePrincipal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #004A8D;
 }
 
-.link{
-  text-decoration: none
+
+.link {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
 }
 
 img{
