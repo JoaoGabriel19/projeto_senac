@@ -32,7 +32,7 @@ function AVencer() {
         '&:hover': {
           backgroundColor: "#F7941D",
         },
-        
+        margin: "5px",
       };
 
   const [data, setData] = useState<RowData[]>([]);
@@ -61,7 +61,11 @@ function AVencer() {
     const fileInput = document.getElementById('escolherArquivo') as HTMLInputElement;
     fileInput.click();
   };
-
+  const handleClearData = () => {
+    setData([]); 
+    setDataLoaded(false); 
+    //Lógica para importar dados está com defeito
+  };
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'fixed', width: '100%' }}>
@@ -69,7 +73,7 @@ function AVencer() {
         <div id='container-botao' style={{ width: '100%', height: '10%', display: 'flex', justifyContent: 'center' }}>
           <br></br>
           <input id='escolherArquivo' type='file' accept=".csv" onChange={handleFileSelect} style={{ display: 'none' }} />
-          <Button id="realizarLogin" style={buttonStyle} onClick={handleButtonClick}>Importar Planilha</Button>
+          <Button id="importarPlanilha" style={buttonStyle} onClick={handleButtonClick}>Importar Planilha</Button>
         </div>
       </div>
       <div id='planilha' style={{padding: "10%"}}>
