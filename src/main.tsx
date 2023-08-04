@@ -5,6 +5,7 @@ import './index.css'
 
 import App from './App.tsx';
 import AVencer from './aVencer.tsx';
+import ADM from './adm.tsx';
 
 const router = createBrowserRouter([
   {
@@ -15,10 +16,10 @@ const router = createBrowserRouter([
     path: "/aVencer",
      element: <AVencer />,
    },
-  // {
-  //   path: "/linkDaRota",
-  //   element: <Rota />,
-  // },
+   {
+     path: "/ADM",
+     element: <ADM />,
+   },
   // {
   //   path: "/linkDaRota",
   //   element: <Rota />,
