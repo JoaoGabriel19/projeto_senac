@@ -26,9 +26,23 @@ type RowData = {
     width: '50%', // Define a largura do botão para preencher o contêiner pai
     height: '20px',
   };
+  const addNewbuttonStyle = {
+    color: '#fff',
+    backgroundColor: '#F7941D',
+    '&:hover': {
+      backgroundColor: '#F7941D',
+    },
+    padding: '15px',
+    width: '100%', // Define a largura do botão para preencher o contêiner pai
+    height: '50px'
+    
+  };
   const handleEdit = () => {
     //funcao chamada ao clicar o botão de editar
 };  
+const handleAddNew = () => {
+    window.location.href = "google.com";
+}; 
 
 const ADM = () => {
     const [data, setData] = useState<RowData[]>([]);
@@ -62,7 +76,7 @@ const ADM = () => {
         <Navbar />
       </div>
       <div>
-        <div id='planilha' style={{ padding: '15%',  width: '100%'}}>
+        <div id='planilha' style={{ padding: '15%', width: '100%' }}>
           {dataLoaded && data.length > 0 ? (
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -89,15 +103,22 @@ const ADM = () => {
                       <TableCell align="right">{row.Status}</TableCell>
                       <TableCell align="right">{row.TipoDeConta}</TableCell>
                       <TableCell align="right">{row.Senha}</TableCell>
-                      <TableCell id="idBtEditar" align="right"><Button onClick={handleEdit} style={buttonStyle}>Editar</Button></TableCell>
+                      <TableCell id="idBtEditar" align="right">
+                        <Button onClick={handleEdit} style={buttonStyle}>Editar</Button>
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </TableContainer>
           ) : null}
+            <section style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button id='adicionarNovo' style={addNewbuttonStyle} onClick={handleAddNew}>Adicionar Nova Conta</Button>
+            </section>
         </div>
+        
       </div>
+      
     </>
   );
 };
