@@ -17,7 +17,7 @@ type RowData = {
   ContratoMatricula: string;
   Valor: string;
   DTINICIO: string;
-  Titulo: string;
+  TITULO: string;
   DATA_CONTATO: string;
 };
 
@@ -117,7 +117,7 @@ const AVencer: React.FC = () => {
                         <TableCell align='right'>{row.ContratoMatricula}</TableCell>
                         <TableCell align='right'>{row.Valor}</TableCell>
                         <TableCell align='right'>{row.DTINICIO}</TableCell>
-                        <TableCell align='right'>{row.Titulo}</TableCell>
+                        <TableCell align='right'>{row.TITULO}</TableCell>
                         <TableCell align='right'>{row.DATA_CONTATO}</TableCell>
                       </TableRow>
                     ))}

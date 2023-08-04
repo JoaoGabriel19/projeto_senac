@@ -6,6 +6,8 @@ import './index.css'
 import App from './App.tsx';
 import AVencer from './aVencer.tsx';
 import ADM from './adm.tsx';
+import { Registro } from './registro.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -20,10 +22,10 @@ const router = createBrowserRouter([
      path: "/ADM",
      element: <ADM />,
    },
-  // {
-  //   path: "/linkDaRota",
-  //   element: <Rota />,
-  // },
+   {
+     path: "/Registro",
+     element: <Registro />,
+   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

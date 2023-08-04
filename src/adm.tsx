@@ -9,43 +9,48 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { Navbar } from './navBar/navBar';
+
 type RowData = {
-    Nome: string;
-    Email: string;
-    Status: string;
-    TipoDeConta: string;
-    Senha: string;
-  };
-  const buttonStyle = {
-    color: '#fff',
+  matricula: string;
+  id: string;
+  senha: string;
+  nivel: string;
+  status: string;
+};
+
+const buttonStyle = {
+  color: '#fff',
+  backgroundColor: '#F7941D',
+  '&:hover': {
     backgroundColor: '#F7941D',
-    '&:hover': {
-      backgroundColor: '#F7941D',
-    },
-    padding: '15px',
-    width: '50%', // Define a largura do botão para preencher o contêiner pai
-    height: '20px',
-  };
-  const addNewbuttonStyle = {
-    color: '#fff',
+  },
+  padding: '15px',
+  width: '50%', // Define a largura do botão para preencher o contêiner pai
+  height: '20px',
+  zindex: '-1'
+};
+
+const addNewbuttonStyle = {
+  color: '#fff',
+  backgroundColor: '#F7941D',
+  '&:hover': {
     backgroundColor: '#F7941D',
-    '&:hover': {
-      backgroundColor: '#F7941D',
-    },
-    padding: '15px',
-    width: '100%', // Define a largura do botão para preencher o contêiner pai
-    height: '50px'
-    
-  };
-  const handleEdit = () => {
-    //funcao chamada ao clicar o botão de editar
-};  
+  },
+  padding: '15px',
+  width: '100%', // Define a largura do botão para preencher o contêiner pai
+  height: '50px'
+};
+
+const handleEdit = () => {
+  //funcao chamada ao clicar o botão de editar
+};
+
 const handleAddNew = () => {
-    window.location.href = "google.com";
-}; 
+  window.location.href = "google.com";
+};
 
 const ADM = () => {
-    const [data, setData] = useState<RowData[]>([]);
+  const [data, setData] = useState<RowData[]>([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
@@ -56,11 +61,11 @@ const ADM = () => {
         /* Formatação que deve ser utilizada no JSON
         [
             {
-            "Nome": "Joao Silva",
-            "Email": "email@email.com",
-            "Status": "Ativa",
-            "TipoDeConta": "Administrador",
-            "Senha": "Senha123"
+            "matricula": "",
+            "id": "id",
+            "senha": "",
+            "nivel": "",
+            "status": "Ativada/desativada"
             }
         ] 
         */
@@ -72,37 +77,35 @@ const ADM = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'fixed', width: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column',alignItems: 'center', width: '100%' }}>
         <Navbar />
       </div>
       <div>
-        <div id='planilha' style={{ padding: '15%', width: '100%' }}>
+        <div id='planilha' style={{ marginTop: '5%' }}>
           {dataLoaded && data.length > 0 ? (
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Nome</TableCell>
-                    <TableCell align="right">Email</TableCell>
-                    <TableCell align="right">Status&nbsp;</TableCell>
-                    <TableCell align="right">Tipo de Conta&nbsp;</TableCell>
+                    <TableCell>Matricula</TableCell>
+                    <TableCell align="right">ID</TableCell>
                     <TableCell align="right">Senha&nbsp;</TableCell>
-                    <TableCell align="right">Função&nbsp;</TableCell>
+                    <TableCell align="right">Nivel&nbsp;</TableCell>
+                    <TableCell align="right">Status&nbsp;</TableCell>
+                    <TableCell align="right">Ação&nbsp;</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {data.map((row, index) => (
-                    <TableRow
-                      key={index}
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
+                    <TableRow key={index}>
                       <TableCell component="th" scope="row">
-                        {row.Nome}
+                        {row.matricula}
                       </TableCell>
-                      <TableCell align="right">{row.Email}</TableCell>
-                      <TableCell align="right">{row.Status}</TableCell>
-                      <TableCell align="right">{row.TipoDeConta}</TableCell>
-                      <TableCell align="right">{row.Senha}</TableCell>
+                      <TableCell align="right">{row.id}</TableCell>
+                      <TableCell align="right">{row.senha}</TableCell>
+                      <TableCell align="right">{row.nivel}</TableCell>
+                      <TableCell align="right">{row.status}</TableCell>
                       <TableCell id="idBtEditar" align="right">
                         <Button onClick={handleEdit} style={buttonStyle}>Editar</Button>
                       </TableCell>
@@ -112,13 +115,12 @@ const ADM = () => {
               </Table>
             </TableContainer>
           ) : null}
-            <section style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Button id='adicionarNovo' style={addNewbuttonStyle} onClick={handleAddNew}>Adicionar Nova Conta</Button>
-            </section>
+          <section style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button id='adicionarNovo' style={addNewbuttonStyle} onClick={handleAddNew}>Adicionar Nova Conta</Button>
+          </section>
         </div>
-        
       </div>
-      
+    </div>
     </>
   );
 };
