@@ -13,7 +13,7 @@ function App() {
       backgroundColor: '#F7941D',
     },
     padding: '15px',
-    width: '100%', // Define a largura do botão para preencher o contêiner pai
+    width: '50%', // Define a largura do botão para preencher o contêiner pai
   };
 
   const textFieldCustom = {
@@ -24,7 +24,7 @@ function App() {
     },
     padding: '5px',
     margin: '5px',
-    width: '100%', // Define a largura do campo de texto para preencher o contêiner pai
+    width: '50%', // Define a largura do campo de texto para preencher o contêiner pai
   };
 
   const handleButtonClick = () => {
@@ -36,7 +36,7 @@ function App() {
     <>
       <div className="telaLogin">
         <div className="partePrincipal">
-          <img src={marcaSenacfecomercioSeschorizontalNegativo} alt="Logo" style={{ marginBottom: '20px' }} />
+          <img src={marcaSenacfecomercioSeschorizontalNegativo} alt="Logo" style={{ marginBottom: '30px' }} />
           <TextField id="login" label="Login" variant="filled" style={textFieldCustom} />
           <TextField id="senha" label="Senha" type="password" variant="filled" style={textFieldCustom} />
           <p className="link">
