@@ -9,6 +9,9 @@ const handleButtonClickCom = () => {
 const handleButtonClickSem = () => {
   window.location.href = "/semcontato";
 }
+const handleButtonClickADM = () => {
+  window.location.href = "/adm";
+}
 
 function NavBar() {
   return (
@@ -16,6 +19,7 @@ function NavBar() {
       <div className="nav-buttons">
         <button onClick={handleButtonClickCom}>Contato Realizado</button>
         <button onClick={handleButtonClickSem}>Contato Pendente</button>
+        <button onClick={handleButtonClickADM}>Gerenciamento de Usuário</button>
       </div>
     </nav>
   );

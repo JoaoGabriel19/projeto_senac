@@ -62,11 +62,17 @@ const ADM = () => {
   const [data, setData] = useState<RowData[]>([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
- /* const [matricula, setMatricula] = useState('');
-  const [id, setId] = useState('');
-  const [senha, setSenha] = useState('');
-  const [nivel, setNivel] = useState('');
-  const [status, setStatus] = useState(''); */
+  const validarLogin = () => {
+    //funcao para validar se o usuário tem acesso ao gerenciamento de usuário
+    let nivel = window.sessionStorage.getItem("nivel");
+    if (nivel != "1"){
+    window.location.href = "/acessoNegado"
+    }
+  };  
+
+  useEffect(() =>{
+    validarLogin();
+  })
 
   const handleInputChange = <T extends keyof RowData>(e: React.ChangeEvent<{ name?: string; value: unknown }>, property: T, index: number) => {
     const { value } = e.target;

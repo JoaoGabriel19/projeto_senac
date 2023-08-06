@@ -30,6 +30,7 @@ function App() {
   const handleButtonClick = () => {
     // Esta função é chamada quando o botão é pressionado
     // Você pode implementar a lógica de login aqui
+    window.sessionStorage.setItem("nivel" , "1");
     window.location.href = "/SemContato";
   };
 

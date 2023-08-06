@@ -8,6 +8,7 @@ import SemContato from './SemContato.tsx';
 import ADM from './adm.tsx';
 import { Registro } from './registro.tsx';
 import ComContato from './ComContato.tsx';
+import { AcessoNegado }from './acessoNegado.tsx';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/ComContato',
     element: <ComContato />,
+  },
+  {
+    path: '/AcessoNegado',
+    element: <AcessoNegado />,
   },
 ]);
 
