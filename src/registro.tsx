@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import './css/registro.css';
+import NavBar from './navBar/navBar';
 
 function Registro() {
   //Valores dos campos
@@ -47,6 +48,7 @@ function Registro() {
 
   return (
     <>
+    <NavBar></NavBar>
       <div id="container-form" className="container">
         <TextField
           id="matricula"

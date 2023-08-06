@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import { Navbar } from './navBar/navBar';
+import NavBar from './navBar/navBar';
 
 type RowData = {
   matricula: string;
@@ -55,7 +55,7 @@ const ADM = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get('Rota para o backend')
+    axios.get('http://localhost:8080/MiauDoteCao/TesteSenac')
       .then(response => {
         setData(response.data);
         setDataLoaded(true);
@@ -78,11 +78,8 @@ const ADM = () => {
 
   return (
     <>
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <div style={{ display: 'flex', flexDirection: 'column',alignItems: 'center', width: '100%' }}>
-        <Navbar />
-      </div>
-      <div>
+      <NavBar />
+      <div style={{ paddingTop: '60px' }}>
         <div id='planilha' style={{ marginTop: '5%' }}>
           {dataLoaded && data.length > 0 ? (
             <TableContainer component={Paper}>
@@ -121,7 +118,6 @@ const ADM = () => {
           </section>
         </div>
       </div>
-    </div>
     </>
   );
 };

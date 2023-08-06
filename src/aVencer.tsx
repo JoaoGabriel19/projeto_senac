@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import marcaSenacfecomercioSeschorizontal from './images/marcaSenacfecomercioSeschorizontal.png';
+import NavBar from './navBar/navBar';
 
 type RowData = {
   Nome: string;
@@ -64,25 +65,9 @@ const AVencer: React.FC = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        {/* NavBar com o logo */}
-        <div style={{ backgroundColor: '#ffffff', padding: '10px', position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 1, display: 'flex', alignItems: 'center' }}>
-          {/* Logo */}
-          <img src={marcaSenacfecomercioSeschorizontal} alt="Logo Senac Fecomércio Sesc" style={{ height: '50px', width: 'auto', marginRight: '10px' }} />
-
-          {/* Botões da NavBar */}
-          <div style={{ display: 'flex', flex: 1 }}>
-            <Button variant='contained' style={buttonStyle}>
-              A vencer
-            </Button>
-            <Button variant='contained' style={buttonStyle}>
-              Vencidos
-            </Button>
-          </div>
-        </div>
-
-        <div style={{ marginTop: '200px', padding: '100px', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', overflow: 'auto' }}>
-          <div id='container-botao' style={{ width: '100%', height: '30%', display: 'flex', justifyContent: 'center' }}>
+      <NavBar />
+      <div style={{ paddingTop: '60px' }}>
+        <div id='planilha' style={{ marginTop: '5%' }}>
             <br />
             <input id='escolherArquivo' type='file' accept='.csv' onChange={handleFileSelect} style={{ display: 'none' }} />
             <Button id='importarPlanilha' style={buttonStyle} onClick={handleButtonClick}>
@@ -127,7 +112,6 @@ const AVencer: React.FC = () => {
             ) : null}
           </div>
         </div>
-      </div>
     </>
   );
 };
