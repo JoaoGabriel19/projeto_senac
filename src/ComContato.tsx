@@ -16,10 +16,11 @@ type RowData = {
   Nome: string;
   Email: string;
   ContratoMatricula: string;
-  Valor: string;
+  VALOR: string;
   DTINICIO: string;
   TITULO: string;
   DATA_CONTATO: string;
+  ASSUNTO: string;
 };
 
 const buttonStyle = {
@@ -31,7 +32,7 @@ const buttonStyle = {
   margin: '5px',
 };
 
-const AVencer: React.FC = () => {
+const ComContato: React.FC = () => {
   const [data, setData] = useState<RowData[]>([]);
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
 
@@ -67,7 +68,7 @@ const AVencer: React.FC = () => {
     <>
       <NavBar />
       <div style={{ paddingTop: '60px' }}>
-        <div id='planilha' style={{ marginTop: '5%' }}>
+      <div id='planilha' style={{ marginTop: '5%', display: 'flex', flexWrap: 'wrap' }}>
             <br />
             <input id='escolherArquivo' type='file' accept='.csv' onChange={handleFileSelect} style={{ display: 'none' }} />
             <Button id='importarPlanilha' style={buttonStyle} onClick={handleButtonClick}>
@@ -84,12 +85,13 @@ const AVencer: React.FC = () => {
                   <TableHead>
                     <TableRow>
                       <TableCell>Nome</TableCell>
-                      <TableCell align='right'>Telefone</TableCell>
-                      <TableCell align='right'>Email&nbsp;</TableCell>
-                      <TableCell align='right'>Vencimento&nbsp;</TableCell>
-                      <TableCell align='right'>Curso&nbsp;</TableCell>
-                      <TableCell align='right'>Parcelas&nbsp;</TableCell>
-                      <TableCell align='right'>Último Contato&nbsp;</TableCell>
+                      <TableCell align='center'>Telefone</TableCell>
+                      <TableCell align='center'>Email&nbsp;</TableCell>
+                      <TableCell align='center'>Vencimento&nbsp;</TableCell>
+                      <TableCell align='center'>Curso&nbsp;</TableCell>
+                      <TableCell align='center'>Parcelas&nbsp;</TableCell>
+                      <TableCell align='center'>Último Contato&nbsp;</TableCell>
+                      <TableCell align='center'>Tipo de Contato</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -98,12 +100,13 @@ const AVencer: React.FC = () => {
                         <TableCell component='th' scope='row'>
                           {row.Nome}
                         </TableCell>
-                        <TableCell align='right'>{row.Email}</TableCell>
-                        <TableCell align='right'>{row.ContratoMatricula}</TableCell>
-                        <TableCell align='right'>{row.Valor}</TableCell>
-                        <TableCell align='right'>{row.DTINICIO}</TableCell>
-                        <TableCell align='right'>{row.TITULO}</TableCell>
-                        <TableCell align='right'>{row.DATA_CONTATO}</TableCell>
+                        <TableCell align='center'>{row.Email}</TableCell>
+                        <TableCell align='center'>{row.ContratoMatricula}</TableCell>
+                        <TableCell align='center'>{row.VALOR}</TableCell>
+                        <TableCell align='center'>{row.DTINICIO}</TableCell>
+                        <TableCell align='center'>{row.TITULO}</TableCell>
+                        <TableCell align='center'>{row.DATA_CONTATO}</TableCell>
+                        <TableCell align='center'>{row.ASSUNTO}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -116,4 +119,4 @@ const AVencer: React.FC = () => {
   );
 };
 
-export default AVencer;
+export default ComContato;

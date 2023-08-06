@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import NavBar from './navBar/navBar';
 
@@ -41,9 +42,16 @@ const addNewbuttonStyle = {
   height: '50px'
 };
 
-const handleEdit = () => {
-  //funcao chamada ao clicar o botão de editar
+const handleEdit = (rowData: RowData) => {
+  axios.put("LINK/DA/REQUISIÇÃO", rowData)
+    .then(response => {
+      console.log('Data updated:', response.data);
+    })
+    .catch(error => {
+      console.error('Error updating data:', error);
+    });
 };
+
 
 const handleAddNew = () => {
   //funcao chamada ao pressionar o botão de adicionar nova conta
@@ -54,8 +62,23 @@ const ADM = () => {
   const [data, setData] = useState<RowData[]>([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
+ /* const [matricula, setMatricula] = useState('');
+  const [id, setId] = useState('');
+  const [senha, setSenha] = useState('');
+  const [nivel, setNivel] = useState('');
+  const [status, setStatus] = useState(''); */
+
+  const handleInputChange = <T extends keyof RowData>(e: React.ChangeEvent<{ name?: string; value: unknown }>, property: T, index: number) => {
+    const { value } = e.target;
+    setData((prevData) => {
+      const newData = [...prevData];
+      newData[index][property] = value as RowData[T];
+      return newData;
+    });
+  };
+
   useEffect(() => {
-    axios.get('ROTA/DA/REQUISICAO')
+    axios.get('http://localhost:8080/MiauDoteCao/TesteSenac')
       .then(response => {
         setData(response.data);
         setDataLoaded(true);
@@ -87,25 +110,31 @@ const ADM = () => {
                 <TableHead>
                   <TableRow>
                     <TableCell>Matricula</TableCell>
-                    <TableCell align="right">ID</TableCell>
-                    <TableCell align="right">Senha&nbsp;</TableCell>
-                    <TableCell align="right">Nivel&nbsp;</TableCell>
-                    <TableCell align="right">Status&nbsp;</TableCell>
-                    <TableCell align="right">Ação&nbsp;</TableCell>
+                    <TableCell align="center">ID</TableCell>
+                    <TableCell align="center">Senha&nbsp;</TableCell>
+                    <TableCell align="center">Nivel&nbsp;</TableCell>
+                    <TableCell align="center">Status&nbsp;</TableCell>
+                    <TableCell align="center">Ação&nbsp;</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {data.map((row, index) => (
                     <TableRow key={index}>
-                      <TableCell component="th" scope="row">
-                        {row.matricula}
-                      </TableCell>
-                      <TableCell align="right">{row.id}</TableCell>
-                      <TableCell align="right">{row.senha}</TableCell>
-                      <TableCell align="right">{row.nivel}</TableCell>
-                      <TableCell align="right">{row.status}</TableCell>
-                      <TableCell id="idBtEditar" align="right">
-                        <Button onClick={handleEdit} style={buttonStyle}>Editar</Button>
+                      <TableCell align="center"><TextField defaultValue={row.matricula} onChange={(e) => handleInputChange(e, 'matricula', index)}></TextField></TableCell>
+                      <TableCell align="center"><TextField defaultValue={row.id} onChange={(e) => handleInputChange(e, 'id', index)}></TextField></TableCell>
+                      <TableCell align="center"><TextField defaultValue={row.senha} onChange={(e) => handleInputChange(e, 'senha', index)}></TextField></TableCell>
+                      <TableCell align="center">
+                        <select defaultValue={row.nivel}onChange={(e) => handleInputChange(e, 'nivel', index)}>
+                           <option value="1">Administrador</option>
+                           <option value="2">Comum</option>
+                           </select></TableCell>
+                      <TableCell align="center">
+                        <select defaultValue={row.status} onChange={(e) => handleInputChange(e, 'status', index)}>
+                           <option value="1">Ativada</option>
+                           <option value="2">Desativada</option>
+                           </select></TableCell>
+                      <TableCell id="idBtEditar" align="center">
+                      <Button onClick={() => handleEdit(row)} style={buttonStyle}>Salvar</Button>
                       </TableCell>
                     </TableRow>
                   ))}
@@ -113,7 +142,7 @@ const ADM = () => {
               </Table>
             </TableContainer>
           ) : null}
-          <section style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <section style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px'}}>
             <Button id='adicionarNovo' style={addNewbuttonStyle} onClick={handleAddNew}>Adicionar Nova Conta</Button>
           </section>
         </div>

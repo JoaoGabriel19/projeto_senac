@@ -30,7 +30,7 @@ function App() {
   const handleButtonClick = () => {
     // Esta função é chamada quando o botão é pressionado
     // Você pode implementar a lógica de login aqui
-    window.location.href = "/avencer";
+    window.location.href = "/SemContato";
   };
 
   return (

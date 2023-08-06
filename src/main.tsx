@@ -4,11 +4,10 @@ import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import './index.css'
 
 import App from './App.tsx';
-import AVencer from './aVencer.tsx';
+import SemContato from './SemContato.tsx';
 import ADM from './adm.tsx';
 import { Registro } from './registro.tsx';
-import CobrancaFutura from './cobrancaFutura.tsx';
-import CobrancaAntecipada from './cobrancaFutura.tsx';
+import ComContato from './ComContato.tsx';
 
 
 const router = createBrowserRouter([
@@ -17,8 +16,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/aVencer',
-    element: <AVencer />,
+    path: '/SemContato',
+    element: <SemContato />,
   },
   {
     path: '/ADM',
@@ -29,8 +28,8 @@ const router = createBrowserRouter([
     element: <Registro />,
   },
   {
-    path: '/cobrancaAntecipada',
-    element: <CobrancaAntecipada />,
+    path: '/ComContato',
+    element: <ComContato />,
   },
 ]);
 
