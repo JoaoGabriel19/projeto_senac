@@ -55,7 +55,7 @@ const ADM = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/MiauDoteCao/TesteSenac')
+    axios.get('ROTA/DA/REQUISICAO')
       .then(response => {
         setData(response.data);
         setDataLoaded(true);
