@@ -25,7 +25,7 @@ const buttonStyle = {
     backgroundColor: '#F7941D',
   },
   padding: '15px',
-  width: '50%', // Define a largura do botão para preencher o contêiner pai
+  width: '50%',
   height: '20px',
   zindex: '-1'
 };
@@ -37,7 +37,7 @@ const addNewbuttonStyle = {
     backgroundColor: '#F7941D',
   },
   padding: '15px',
-  width: '100%', // Define a largura do botão para preencher o contêiner pai
+  width: '100%',
   height: '50px'
 };
 
@@ -46,7 +46,8 @@ const handleEdit = () => {
 };
 
 const handleAddNew = () => {
-  window.location.href = "google.com";
+  //funcao chamada ao pressionar o botão de adicionar nova conta
+  window.location.href = "/registro";
 };
 
 const ADM = () => {
@@ -54,7 +55,7 @@ const ADM = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/MiauDoteCao/TesteSenac')
+    axios.get('Rota para o backend')
       .then(response => {
         setData(response.data);
         setDataLoaded(true);

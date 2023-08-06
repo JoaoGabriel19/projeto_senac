@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import './App.css';
+import './css/App.css';
 import marcaSenacfecomercioSeschorizontalNegativo from './images/marcaSenacfecomercioSeschorizontalnegativo.png';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       backgroundColor: '#F7941D',
     },
     padding: '15px',
-    width: '50%', // Define a largura do botão para preencher o contêiner pai
+    width: '50%',
   };
 
   const textFieldCustom = {
@@ -24,12 +24,13 @@ function App() {
     },
     padding: '5px',
     margin: '5px',
-    width: '50%', // Define a largura do campo de texto para preencher o contêiner pai
+    width: '50%',
   };
 
   const handleButtonClick = () => {
     // Esta função é chamada quando o botão é pressionado
     // Você pode implementar a lógica de login aqui
+    window.location.href = "/avencer";
   };
 
   return (
