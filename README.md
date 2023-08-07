@@ -25,7 +25,7 @@ Exemplo de arquivo CSV para ser utilizado como teste
    Pedro Souza,31 98765-4321,pedro.souza@example.com,2023-07-20,Geografia,2,Sim
    Carla Oliveira,41 99876-5432,carla.oliveira@example.com,2023-08-25,Inglês,4,Sim
    ```
-Altere esta parte no arquivo aVencer.tsx para as colunas desejadas
+Altere esta parte no arquivo ComContato.tsx para as colunas desejadas
 ```TypeScript
 type RowData = {
   Nome: string; //NOME
