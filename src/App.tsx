@@ -12,6 +12,7 @@ function App() {
     '&:hover': {
       backgroundColor: '#F7941D',
     },
+    marginTop: '5px',
     padding: '15px',
     width: '50%',
   };
@@ -41,12 +42,6 @@ function App() {
           <img src={marcaSenacfecomercioSeschorizontalNegativo} alt="Logo" style={{ marginBottom: '30px' }} />
           <TextField id="login" label="Login" variant="filled" style={textFieldCustom} />
           <TextField id="senha" label="Senha" type="password" variant="filled" style={textFieldCustom} />
-          <p className="link">
-            <span>Esqueceu a senha?</span>
-            <Link to="/alterarSenha" className="link">
-              <span>Clique aqui!</span>
-            </Link>
-          </p>
           <Button id="realizarLogin" style={buttonStyle} onClick={handleButtonClick}>
             Conectar-se
           </Button>
