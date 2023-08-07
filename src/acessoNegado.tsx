@@ -1,9 +1,10 @@
 import React from "react";
+import './css/acessoNegado.css';
 
 function AcessoNegado() {
     return (
         <>
-        <h1>Acesso Negado</h1>
+        <h1 className="message">Acesso Negado</h1>
         </>
     )
 }
